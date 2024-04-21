@@ -18,7 +18,7 @@ JOIN students ON student_id = students.id
 JOIN cohorts ON cohort_id = cohorts.id
 WHERE cohorts.name LIKE $1
 ORDER BY teacher;
-`)
+`, values)
 .then(res => {
   res.rows.forEach(row => {
     console.log(`${row.cohort}: ${row.teacher}`);
